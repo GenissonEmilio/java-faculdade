@@ -5,13 +5,13 @@ public class Caneta {
     protected int carga;
     private boolean tampada;
 
-    /*public Caneta(String modelo, String cor, float ponta, int carga, boolean tampada) {
+    public Caneta(String modelo, String cor, float ponta, int carga, boolean tampada) {
         this.modelo = modelo;
         this.cor = cor;
         this.ponta = ponta;
         this.carga = carga;
         this.tampada = tampada;
-    }*/
+    }
 
     public void status() {
         System.out.printf("Modelo: %s\n", this.modelo);
