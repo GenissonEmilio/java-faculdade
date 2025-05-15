@@ -1,0 +1,7 @@
+Número da conta: 346644
+Data e Hora: 13/05/2025 13:30:24
+Saldo atual: 2993.0
+Deposito de: R$2000.0
+Saque de: R$347.0
+Deposito de: R$340.0
+Deposito de: R$1000.0

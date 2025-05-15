@@ -1,0 +1,9 @@
+==========Extrato==========
+Número da conta: 939645
+Saldo atual: 2993.0
+Histórico: 
+Deposito de: R$2000.0
+Saque de: R$347.0
+Deposito de: R$340.0
+Deposito de: R$1000.0
+13/05/2025 14:55:13
