@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,11 +21,23 @@ public class GerenciadorDeCodigos {
     public CodigoVisitante obterCodigoDisponivel() {
         for (CodigoVisitante codigo : this.listarCodigos()) {
             if (!codigo.isUsado()) {
+                codigo.usar();
                 return codigo;
             }
         }
 
         return null;
+    }
+
+    //Verifica disponibilidade do codigo
+    public boolean isDisponivel() {
+        for (CodigoVisitante codigo : this.listarCodigos()) {
+            if (!codigo.isUsado()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     //Salva os codigos com indicações de quais já foram usados
@@ -59,10 +74,16 @@ public class GerenciadorDeCodigos {
     }
 
     //Gera varios codigos com base na quantidade passada, e atualiza o arquivo com os novos codigos
-    public void gerarNovosCodigos(int qtd) {
-        for (int i = 0; i < qtd; i++) {
-            this.adicionarCodigo(this.gerarNovoCodigo());
-
+    public void gerarNovosCodigos(int qtd, String caminho) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true))) {
+            for (int i = 0; i < qtd; i++) {
+                CodigoVisitante codigo = this.gerarNovoCodigo();
+                this.adicionarCodigo(codigo);
+                writer.write(codigo.getCodigo());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao sobreescrever o arquivo! Erro: " + e.getMessage());
         }
     }
 
